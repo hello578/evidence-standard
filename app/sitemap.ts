@@ -1,26 +1,2 @@
 import type { MetadataRoute } from "next";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.evidencestandard.org";
-
-  return [
-    {
-      url: `${base}/`,
-      lastModified: new Date("2026-01-01"),
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: `${base}/about`,
-      lastModified: new Date("2026-01-01"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${base}/governance`,
-      lastModified: new Date("2026-01-01"),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-  ];
-}
+export default function sitemap(): MetadataRoute.Sitemap { const base="https://www.evidencestandard.org"; const routes=["/","/about","/governance","/standard","/landscape","/decision-evidence","/runtime-evidence","/governance-evidence","/principles","/glossary","/ves","/resources","/legal/privacy","/legal/cookies","/legal/terms"]; return routes.map((route,index)=>({ url:`${base}${route}`, lastModified:new Date("2026-09-20"), changeFrequency:"monthly" as const, priority:index===0?1:0.7 })); }

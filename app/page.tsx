@@ -1,75 +1,10 @@
+import Link from "next/link";
+import { ExternalLink } from "./components/page-shell";
 
-// app/page.tsx
-
-export default function Home() {
-  return (
-    <section>
-      <h1
-        style={{
-          fontSize: "2rem",
-          lineHeight: 1.2,
-          marginBottom: "1rem",
-        }}
-      >
-        The Evidence Standard
-      </h1>
-
-      <p
-        style={{
-          fontSize: "1.05rem",
-          lineHeight: 1.6,
-          color: "#d1d5db",
-          marginBottom: "1rem",
-        }}
-      >
-        The Evidence Standard is a published framework for defining how evidence
-        of judgement and decision-making may be captured and verified at the
-        moment it is exercised.
-      </p>
-
-      <p
-        style={{
-          fontSize: "1.05rem",
-          lineHeight: 1.6,
-          color: "#d1d5db",
-          marginBottom: "2rem",
-        }}
-      >
-        It establishes shared principles intended to support audit, regulatory,
-        insurance, and governance scrutiny.
-      </p>
-
-      <h2
-        style={{
-          fontSize: "1.25rem",
-          marginBottom: "0.75rem",
-          marginTop: "1.5rem",
-        }}
-      >
-        Published standards
-      </h2>
-
-      <ul
-        style={{
-          listStyle: "disc",
-          paddingLeft: "1.25rem",
-          color: "#d1d5db",
-          lineHeight: 1.6,
-        }}
-      >
-        <li>
-          <a
-            href="https://vesstandard.org"
-            target="_blank"
-            rel="noreferrer"
-            style={{ color: "#93c5fd" }}
-          >
-            Veriscopic Evidence Standard (VES)
-          </a>
-        </li>
-      </ul>
-    </section>
-  );
-}
-
-
+export default function Home() { return <>
+  <section className="hero"><div className="container"><p className="eyebrow">A category resource maintained by Veriscopic</p><h1>Evidence Standards For Consequential Decisions</h1><p className="hero-copy">As AI, automation and delegated workflows move deeper into regulated markets, organisations need more than logs, dashboards and policy documents. They need evidence that can be checked later, after systems, people and circumstances have changed.</p><p className="supporting">EvidenceStandard.org maps the emerging field of verifiable, portable and reviewable evidence standards, with particular focus on decision-state, authority, provenance, replayability and organisational accountability.</p><div className="actions"><Link className="button button-primary" href="/landscape">Understand the evidence landscape</Link><Link className="button button-secondary" href="/ves">View VES</Link></div></div></section>
+  <section className="section"><div className="container"><div className="section-heading"><p className="eyebrow">Why this category is emerging</p><h2>Different evidence standards answer different questions.</h2><p>Runtime evidence shows what happened in a system. Governance evidence shows how an organisation is controlled. Decision evidence shows why an organisation acted.</p></div><div className="grid-3"><article className="card"><span className="card-kicker">01 · Systems</span><h3>More decisions cross system boundaries</h3><p>AI, automation, delegated authority and external data make the basis of a decision harder to recover from one interface or log.</p></article><article className="card"><span className="card-kicker">02 · Time</span><h3>Review happens after conditions change</h3><p>People, policies, vendors and source systems may change before a consequential decision is challenged.</p></article><article className="card"><span className="card-kicker">03 · Accountability</span><h3>Actions need their decision context</h3><p>A record of execution is useful, but review also needs the evidence, authority, judgement and commitment around the act.</p></article></div></div></section>
+  <section className="section section-muted"><div className="container"><div className="section-heading"><p className="eyebrow">The evidence-standard landscape</p><h2>From observed events to preserved decision-state.</h2></div><div className="landscape-strip"><div className="landscape-step"><span>01</span><strong>Audit and telemetry</strong><span>What events were observed?</span></div><div className="landscape-step"><span>02</span><strong>Runtime action evidence</strong><span>What did the system or agent do?</span></div><div className="landscape-step"><span>03</span><strong>Governance evidence</strong><span>What controls or posture existed?</span></div><div className="landscape-step"><span>04</span><strong>Decision evidence</strong><span>What formed the consequential organisational act?</span></div></div><p className="supporting">The risk comes when one evidence type is mistaken for another. <Link href="/landscape">Read the landscape classification</Link>.</p></div></section>
+  <section className="section"><div className="container grid-2"><div className="section-heading"><p className="eyebrow">The decisive question</p><h2>When a decision is challenged, what can still be understood?</h2></div><div className="prose"><p>A consequential decision is not just an action, a model output, a workflow event or a control record. It is an organisational act.</p><p>Decision evidence concerns the basis of that specific act: what evidence was available and relied upon, what authority applied, what conditions governed, what systems contributed, what judgement was exercised and what the organisation committed to.</p><p><Link href="/decision-evidence">Explore decision evidence</Link> or <Link href="/glossary">browse the glossary</Link>.</p></div></div></section>
+  <section className="section section-muted"><div className="container grid-2"><div><p className="eyebrow">Published standard</p><h2>VES addresses the decision-evidence category.</h2><p className="supporting">The Verifiable Evidence Standard is a published, implementation-neutral standard for preserving and reviewing the evidence, authority, conditions, system contribution, human judgement and commitment behind consequential decisions.</p><div className="actions"><Link className="button button-primary" href="/ves">Read about VES</Link><ExternalLink href="https://vesstandard.org">Open VESStandard.org</ExternalLink></div></div><div className="card"><span className="card-kicker">Stewardship</span><h3>Maintained by Veriscopic</h3><p>EvidenceStandard.org is a category resource. Veriscopic stewards VES and maintains the related implementation work without presenting this site as a certification or endorsement programme.</p><p><ExternalLink href="https://veriscopic.com">Visit Veriscopic</ExternalLink></p></div></div></section>
+  </>; }

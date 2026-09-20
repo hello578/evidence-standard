@@ -1,67 +1,9 @@
-// app/layout.tsx
-// app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: {
-    default: "The Evidence Standard",
-    template: "%s | The Evidence Standard",
-  },
-  description:
-    "The Evidence Standard is a stable framework for defining how evidence of judgement and decision-making may be recorded and verified.",
-  metadataBase: new URL("https://www.evidencestandard.org"),
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{
-          margin: 0,
-          minHeight: "100vh",
-          backgroundColor: "#0b1120",
-          color: "#e5e7eb",
-          fontFamily:
-            "var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 860,
-            margin: "0 auto",
-            padding: "2.5rem 1.25rem 3rem",
-          }}
-        >
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
-            {/* Veriscopic Consent Evidence — single source of truth */}
-            </div>
-        <script
-          src="https://www.veriscopic.com/consent-client.js"
-          data-veriscopic-site="7cfda647-ceb2-4737-a5c1-8166ae0fa3a6"
-          defer
-        ></script>
-      </body>
-    </html>
-  );
-}
+export const metadata: Metadata = { metadataBase: new URL("https://www.evidencestandard.org"), title: { default: "Evidence Standards for Consequential Decisions", template: "%s | Evidence Standard" }, description: "A neutral category resource explaining runtime, governance and decision evidence standards for consequential organisational decisions.", keywords: ["evidence standards", "decision evidence", "decision-state", "runtime evidence", "governance evidence", "consequential decisions", "VES"], authors: [{ name: "Veriscopic", url: "https://veriscopic.com" }], creator: "Veriscopic", publisher: "Veriscopic", alternates: { canonical: "/" }, openGraph: { type: "website", locale: "en_GB", siteName: "Evidence Standard", title: "Evidence Standards for Consequential Decisions", description: "A neutral category resource for understanding runtime, governance and decision evidence." }, twitter: { card: "summary_large_image", title: "Evidence Standards for Consequential Decisions", description: "A neutral category resource for understanding decision evidence." }, robots: { index: true, follow: true, googleBot: { index: true, follow: true } } };
+const organizationJsonLd = { "@context": "https://schema.org", "@type": "Organization", name: "Veriscopic", url: "https://veriscopic.com" };
+const siteJsonLd = { "@context": "https://schema.org", "@type": "WebSite", name: "The Evidence Standard", url: "https://www.evidencestandard.org", publisher: { "@type": "Organization", name: "Veriscopic", url: "https://veriscopic.com" } };
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} /><div className="site-shell"><SiteHeader /><main className="main">{children}</main><SiteFooter /></div><script src="https://www.veriscopic.com/consent-client.js" data-veriscopic-site="7cfda647-ceb2-4737-a5c1-8166ae0fa3a6" defer /></body></html>; }

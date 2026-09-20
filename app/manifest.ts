@@ -6,11 +6,11 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "The Evidence Standard",
     short_name: "Evidence Standard",
     description:
-      "A stable framework for defining how evidence of judgement and decision-making may be recorded and verified.",
+      "A category resource for evidence standards and consequential decisions.",
     start_url: "/",
     display: "minimal-ui",
-    background_color: "#0b1120",
-    theme_color: "#0b1120",
+    background_color: "#f7f9f7",
+    theme_color: "#084c4b",
     icons: [
       {
         src: "/favicon.ico",
